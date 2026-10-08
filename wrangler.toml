@@ -17,6 +17,6 @@ migrations_dir = "migrations"
 [vars]
 PUBLIC_ORIGIN = "https://aion2-routine.captntof.workers.dev"
 # Remplacer par l'Application ID Discord, identifiant public
-DISCORD_CLIENT_ID = ""
+DISCORD_CLIENT_ID = "1557831739278237747"
 
 # DISCORD_CLIENT_SECRET est un secret Cloudflare : ne jamais l'écrire ici.
