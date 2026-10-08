@@ -151,7 +151,8 @@ async function start() {
     }
     console.warn("AION 2 : chargement de session impossible", error.message);
   } finally {
-    setBusy(false);
+    // Si le chargement du compte échoue, ne pas laisser modifier par erreur les données invité.
+    setBusy(!!(uid && !ready));
   }
 }
 login.addEventListener("click", () => { location.assign("/auth/discord"); });
