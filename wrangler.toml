@@ -1,0 +1,23 @@
+name = "aion2-routine"
+main = "worker/index.js"
+compatibility_date = "2026-09-01"
+workers_dev = true
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+run_worker_first = ["/api/*", "/auth/*"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "aion2-routine-db"
+# Remplacer par le UUID de la base D1 (identifiant public, PAS un secret)
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "migrations"
+
+[vars]
+PUBLIC_ORIGIN = "https://aion2-routine.captntof.workers.dev"
+# Remplacer par l'Application ID Discord, identifiant public
+DISCORD_CLIENT_ID = ""
+
+# DISCORD_CLIENT_SECRET est un secret Cloudflare : ne jamais l'écrire ici.
