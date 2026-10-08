@@ -6,7 +6,7 @@ Application non officielle, dérivée de la fiche récapitulative fournie. Check
 
 ## État de la configuration
 
-Le dépôt contient le code, mais le service n'est **pas encore déployé**. Il faut renseigner le UUID D1 et le Discord Application ID dans `wrangler.toml`, créer la base et configurer le secret Discord sur Cloudflare.
+Le dépôt contient le code, mais le service n'est **pas encore déployé**. La base D1 `aion2-routine-db` est créée et son UUID est déjà renseigné dans `wrangler.toml`. Il reste à initialiser les tables SQL, renseigner le Discord Application ID et configurer le secret Discord sur Cloudflare.
 
 L'adresse retenue est : https://aion2-routine.captntof.workers.dev
 
@@ -14,8 +14,7 @@ L'adresse retenue est : https://aion2-routine.captntof.workers.dev
 
 ### 1. Base Cloudflare D1
 
-- Cloudflare → **Storage & databases** → **D1 SQL Database** → **Create database**, nom : `aion2-routine-db`.
-- Copier le **Database ID** et remplacer le UUID fictif du `wrangler.toml`.
+- La base `aion2-routine-db` existe déjà dans Cloudflare. Son Database ID est enregistré dans `wrangler.toml`.
 - Dans la console SQL de la base, exécuter **une fois** le contenu de `migrations/0001_initial.sql`. Alternativement, sur un poste avec Wrangler connecté à Cloudflare : `npx wrangler d1 migrations apply aion2-routine-db --remote` (choisir l'une des méthodes, pas les deux).
 - Les requêtes de l'API utilisent obligatoirement l'ID Discord provenant du **cookie de session validé par le serveur**, jamais un ID fourni par le navigateur.
 
