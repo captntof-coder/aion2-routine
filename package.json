@@ -1,0 +1,16 @@
+{
+  "name": "aion2-routine",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:local": "wrangler d1 migrations apply aion2-routine-db --local",
+    "db:remote": "wrangler d1 migrations apply aion2-routine-db --remote",
+    "check": "node --check worker/index.js && node --check public/cloud.js"
+  },
+  "devDependencies": {
+    "wrangler": "^4.44.0"
+  }
+}
